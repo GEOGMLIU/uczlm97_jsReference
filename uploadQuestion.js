@@ -87,6 +87,7 @@ function startQuestionUpload() {
 		//a string holding the context which are waiting to be posted
 		var postString = "question_title="+ question_title +"&question_text="+question_text+"&answer_1="+answer_1
 		+"&answer_2="+answer_2+"&answer_3="+answer_3+"&answer_4="+answer_4+"&correct_answer="+correct_answer+"&latitude="+ latitude+"&longitude="+longitude;
+		alert(postString);
 		processQuestion(postString);
 	}
 }
