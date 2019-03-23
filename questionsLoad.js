@@ -4,6 +4,7 @@ var QuestionPointLayer;
 //createavariablethatwillholdtheXMLHttpRequest()
 var xhrQuestion;
 
+/*
 //automatically change latlng when the user clicked on map
 function changeLatlng(){
 	alert("Getting the latlng.");
@@ -11,7 +12,7 @@ function changeLatlng(){
 	document.getElementById("latitude").value=clickinglat.toFixed(6);
 	document.getElementById("longitude").value=clickinglng.toFixed(6);
 }
-
+*/
 //load or remove layer depending on the checkbox
 function checkQuestionLayer()
 {
