@@ -12,6 +12,18 @@ function changeLatlng(){
 	document.getElementById("longitude").value=clickinglng.toFixed(6);
 }
 
+//load or remove layer depending on the checkbox
+function checkQuestionLayer()
+{
+	if (document.getElementById('switch1').checked) 
+	{
+		loadQuestionPoint();
+	} 
+	else {
+		removeQuestionPoint();
+	}
+}
+
 //method to call the other functions to load 
 //all the questions points created by my user only
 function loadQuestionPoint() 
