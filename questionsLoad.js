@@ -5,6 +5,7 @@ var LatestQuestionsLayer;
 //createavariablethatwillholdtheXMLHttpRequest()
 var xhrQuestion;
 var xhrLatestQ;
+var xhrMostDif;
 //marker shows last 5 questions that user answered
 var ptMarkerOrg=L.AwesomeMarkers.icon({
 	icon:'play',
@@ -147,4 +148,33 @@ function loadLatestQLayer(latestQData){
              },
          }).addTo(mymap);
 	mymap.fitBounds(LatestQuestionsLayer.getBounds());
+}
+
+// the code to show the user's ranking
+function mostDifLoad(){
+	xhrMostDif = new XMLHttpRequest();
+	var url = "http://developer.cege.ucl.ac.uk:"+httpPortNumber;
+	url = url + "/getMostDiff/"+httpPortNumber;
+	xhrMostDif.open("GET", url, true);
+	xhrMostDif.onreadystatechange = mostDifResponse;
+	xhrMostDif.send();
+}
+
+function mostDifResponse(){
+	if (xhrMostDif.readyState == 4) {
+		// once the data is ready, process the data
+		var mostDifString = xhrMostDif.responseText;
+		var mostDifData="";
+		for (var i = 1; i <mostDifString.length-1; i++) {
+			mostDifData=mostDifData+mostDifString[i];
+		}
+		var mostDifJSON = JSON.parse(mostDifData);
+		var postList=""
+		for(var i= 0;i <5 ;i++){
+			alert(mostDifJSON.array_to_json[i].id);
+			//postList=postList+mostDifJSON.array_to_json[i].id+": "+mostDifJSON.array_to_json[i].question_title": "+mostDifJSON.array_to_json[i].question_text+": \n";
+			//postList=postList+
+		}
+		document.getElementById("mostDifDiv").innerHTML = postList;
+	}
 }
