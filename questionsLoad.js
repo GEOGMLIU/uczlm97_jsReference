@@ -121,7 +121,6 @@ function latestPointsResponse(){
 //convert the received data-which is text
 //-toJSON format and add it to the map 
 function loadLatestQLayer(latestQData){
-	alert(latestQData);
 	//convert the text to JSON 
 	var latestQJSON = JSON.parse(latestQData);
 	LatestQuestionsLayer = L.geoJson(latestQJSON,
@@ -174,8 +173,9 @@ function mostDifResponse(){
 		var mostDifJSON = JSON.parse(mostDifData);
 		var postList=""
 		for(var i= 0;i <5 ;i++){
-			alert(mostDifJSON.array_to_json[i].id);
-			//postList=postList+mostDifJSON.array_to_json[i].id+": "+mostDifJSON.array_to_json[i].question_title": "+mostDifJSON.array_to_json[i].question_text+": \n";
+			postList=postList+mostDifJSON.array_to_json[i].id +": "+mostDifJSON.array_to_json[i].question_title+": "+mostDifJSON.array_to_json[i].question_text+": \n";
+			postList=postList+mostDifJSON.array_to_json[i].answer_1+";"+mostDifJSON.array_to_json[i].answer_2+";"+mostDifJSON.array_to_json[i].answer_3+";"+mostDifJSON.array_to_json[i].answer_4+"; \n"
+			//+": "+mostDifJSON.array_to_json[i].question_title": "+mostDifJSON.array_to_json[i].question_text+": \n";
 			//postList=postList+
 		}
 		document.getElementById("mostDifDiv").innerHTML = postList;
